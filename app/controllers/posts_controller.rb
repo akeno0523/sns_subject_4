@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    # @nicknames = User.find_by(nickname: params[:user_id])
+    # @nicknames = User.find(user_id).nickname
   end
 
   # GET /posts/1
@@ -74,7 +76,7 @@ class PostsController < ApplicationController
     # end
 
     def post_params
-      params.require(:post).permit(:title, :body, :user_id)
+      params.require(:post).permit(:title, :body, :user_id,:nickname)
     end
 
     def correct_user
